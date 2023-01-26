@@ -1,0 +1,27 @@
+# This is a GitHub Action workflow named "Simple basic workflow"
+name: Simple basic workflow
+
+# It is triggered by a "push" event, which means it will run every time code is pushed to the repository
+on:
+  push:
+
+# The "jobs" section defines the job that will run when the workflow is triggered
+# In this case, we only have one job called "test"
+jobs:
+  test:
+    # The "runs-on" field specifies the runner that will be used to run the job
+    # In this case, we're using the latest version of Ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+      # The first step is to check out the repository
+      # The "uses" field specifies the action that will be used
+      # In this case, we're using the "actions/checkout@v3" action to check out the repository
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      # The second step is to run the test script
+      # The "run" field specifies the command that will be run
+      # In this case, we're running the "./test.sh" script
+      - name: Run test
+        run: ./test.sh
